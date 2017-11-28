@@ -36,7 +36,7 @@
 		</fileSet>
 		<!--artifact -->
 		<fileSet>
-			<directory>target</directory>
+			<directory>${outputDirectory}</directory>
 			<outputDirectory>/</outputDirectory>
 			<includes>
 				<include>${project.artifactId}-*.jar</include>
