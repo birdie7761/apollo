@@ -37,9 +37,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
-import javax.servlet.Filter;
 import java.util.EventListener;
 import java.util.Map;
+
+import javax.servlet.Filter;
 
 
 @Configuration
@@ -256,6 +257,10 @@ public class AuthConfiguration {
       http.exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/signin"));
     }
 
+    @Bean
+    public ServletListenerRegistrationBean httpSessionEventPublisher() {
+      return new ServletListenerRegistrationBean(new SessionListener());
+    }
   }
 
   /**
