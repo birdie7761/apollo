@@ -2,8 +2,8 @@
 
 # apollo config db info
 apollo_config_db_url=jdbc:mysql://proxysql-test.service.consul:6033/ApolloConfigDB?characterEncoding=utf8
-apollo_config_db_username=cat
-apollo_config_db_password=mVEv24taitYh
+apollo_config_db_username=
+apollo_config_db_password=
 
 outputDirectory=target-test
 

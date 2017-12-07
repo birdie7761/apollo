@@ -2,13 +2,13 @@
 
 # apollo config db info
 apollo_config_db_url=jdbc:mysql://proxysql-pro.service.consul:6033/ApolloConfigDB?characterEncoding=utf8
-apollo_config_db_username=cat
-apollo_config_db_password=mVEv24taitYh
+apollo_config_db_username=
+apollo_config_db_password=
 
 # apollo portal db info
 apollo_portal_db_url=jdbc:mysql://proxysql-pro.service.consul:6033/ApolloPortalDB?characterEncoding=utf8
-apollo_portal_db_username=cat
-apollo_portal_db_password=mVEv24taitYh
+apollo_portal_db_username=
+apollo_portal_db_password=
 
 # meta server url, different environments should have different meta server addresses
 test_meta=http://apollo-test.service.consul:8008
