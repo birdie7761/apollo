@@ -1,5 +1,6 @@
 #!/bin/bash
 set -m
+
 SERVICE_NAME=apollo-configservice
 ## Adjust log dir if necessary
 LOG_DIR=/opt/logs/apollo-configservice
@@ -18,6 +19,12 @@ export JAVA_OPTS="$JAVA_OPTS -Dserver.port=$SERVER_PORT -Dlogging.file=$LOG_DIR/
 
 PATH_TO_JAR=$SERVICE_NAME".jar"
 SERVER_URL="http://localhost:$SERVER_PORT"
+
+if [ $# != 1 ] ; then
+        printf "\nUSAGE: $0 Port\n"
+        printf "e.g.: $0 8080\n"
+        exit 1;
+fi
 
 function checkPidAlive {
     for i in `ls -t $SERVICE_NAME*.pid 2>/dev/null`
