@@ -7,7 +7,7 @@ import com.ctrip.framework.apollo.common.dto.NamespaceDTO;
 import com.ctrip.framework.apollo.common.exception.BadRequestException;
 import com.ctrip.framework.apollo.common.utils.BeanUtils;
 import com.ctrip.framework.apollo.core.enums.ConfigFileFormat;
-import com.ctrip.framework.apollo.core.enums.Env;
+import com.ctrip.framework.apollo.portal.environment.Env;
 import com.ctrip.framework.apollo.core.utils.StringUtils;
 import com.ctrip.framework.apollo.portal.api.AdminServiceAPI;
 import com.ctrip.framework.apollo.portal.component.txtresolver.ConfigTextResolver;
@@ -108,6 +108,10 @@ public class ItemService {
 
   public List<ItemDTO> findItems(String appId, Env env, String clusterName, String namespaceName) {
     return itemAPI.findItems(appId, env, clusterName, namespaceName);
+  }
+
+  public List<ItemDTO> findDeletedItems(String appId, Env env, String clusterName, String namespaceName) {
+    return itemAPI.findDeletedItems(appId, env, clusterName, namespaceName);
   }
 
   public ItemDTO loadItem(Env env, String appId, String clusterName, String namespaceName, String key) {
@@ -235,10 +239,10 @@ public class ItemService {
 
     if (sourceComment == null) {
       return !StringUtils.isEmpty(targetComment);
-    } else if (targetComment != null) {
-      return !sourceComment.equals(targetComment);
-    } else {
-      return false;
     }
+    if (targetComment != null) {
+      return !sourceComment.equals(targetComment);
+    }
+    return false;
   }
 }

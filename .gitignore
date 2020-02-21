@@ -26,3 +26,9 @@ target
 # git
 *.orig
 
+apollo-adminservice/target-pro/
+apollo-adminservice/target-test/
+apollo-configservice/target-pro/
+apollo-configservice/target-test/
+*.versionsBackup
+maven/
